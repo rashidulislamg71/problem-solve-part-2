@@ -1,5 +1,3 @@
-
-
 // Task -1:
 // Find the lowest number in the array below.
 
@@ -94,6 +92,7 @@ const employees = [
   { name: "shohel", experience: 0, starting: 29000, increment: 4000 },
 ];
 
+// way - 1
 function calculateMonthlySalary() {
   let totalStartingSalary = 0;
   let totalIncrementSalary = 0;
@@ -108,3 +107,11 @@ function calculateMonthlySalary() {
 }
 const totalSalary = calculateMonthlySalary(employees);
 console.log(totalSalary);
+
+// way-2
+function calculateMonthlySalary(employees) {
+  return employees.reduce((total, emp) => {
+    return total + emp.starting + emp.experience * emp.increment;
+  }, 0);
+}
+console.log(calculateMonthlySalary(employees));
